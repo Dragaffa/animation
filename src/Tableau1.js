@@ -3,7 +3,11 @@ class Tableau1 extends Phaser.Scene{
 
     preload() {
         for (let i = 1; i <= 10; i++) {
-            this.load.image('idle'+i, 'assets/characters/boy/boy2/PNG/idle/Layer-1' + i + '.png');
+            this.load.image('idle'+i, 'assets/characters/boy/boy2/PNG/idle/Layer-' + i + '.png');
+
+        for (let i = 1; i <= 9; i++) {
+            this.load.image('mort'+i, 'assets/characters/boy/boy2/PNG/die/die' + i + '.png');
+        }
         }
     }
 
@@ -17,7 +21,7 @@ class Tableau1 extends Phaser.Scene{
 
 
     create(){
-        this.die = this.add.sprite(425, 110, 'idle').setOrigin(0,0);
+        this.idle = this.add.sprite(500, 110, 'idle').setOrigin(0,0);
         console.log(frames)
         this.anims.create({
             key: 'idle',
@@ -25,12 +29,21 @@ class Tableau1 extends Phaser.Scene{
             frameRate: 12,
             repeat: -1
         });
-        this.die.play('idle');
-
-
-
+        this.idle.play('idle');
     }
 
+    create(){
+        this.mort = this.add.sprite(500, 110, 'mort').setOrigin(0,0);
+        console.log(frames)
+        this.anims.create({
+            key: 'mort',
+            frames: this.getFrames("mort",10),
+            frameRate: 12,
+            repeat: -1
+        });
+        this.mort.play('mort');
+    }
+    //this.mort.visible=false;
 
     initKeyboard()
         {
