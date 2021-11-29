@@ -47,11 +47,12 @@ class Tableau1 extends Phaser.Scene{
         console.log(frames)
         this.anims.create({
             key: 'enemy2',
-            frames: this.getFrames("enemy2",10),
+            frames: this.getFrames("enemy2",6),
             frameRate: 12,
             repeat: -1
         });
         this.enemy2.play('enemy2');
+        this.enemy2.setScale(0.5);
     }
 
 
